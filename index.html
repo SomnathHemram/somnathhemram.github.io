@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somnath Hemram | Web Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        /* Card hover effect */
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .project-card {
+            transition: all 0.3s ease;
+        }
+        
+        /* Gradient underline */
+        .gradient-underline {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .gradient-underline::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 3px;
+        }
+        
+        /* Form styling */
+        input:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-blue-600">My Portfolio</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition duration-300">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition duration-300">About</a>
+                    <a href="#portfolio" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition duration-300">Portfolio</a>
+                    <a href="#skills" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition duration-300">Skills</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium transition duration-300">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" class="text-gray-500 hover:text-blue-600">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-md">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Home</a>
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">About</a>
+                <a href="#portfolio" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Portfolio</a>
+                <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Skills</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-28 pb-20 px-4 md:pt-36 md:pb-28 bg-gradient-to-r from-blue-50 to-indigo-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 slide-up">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Hi, I'm <span class="text-blue-600">Somnath Hemram</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold text-gray-700 mb-4">Web Developer</h2>
+                    <p class="text-lg text-gray-600 mb-6 max-w-lg">Crafting exceptional digital experiences with clean code and thoughtful design.</p>
+                    <div class="flex space-x-4">
+                        <a href="#portfolio" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition duration-300 shadow-md">View My Work</a>
+                        <a href="#contact" class="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-medium transition duration-300">Contact Me</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center fade-in">
+                    <div class="relative">
+                        <img src="https://tse1.explicit.bing.net/th/id/OIP.UzB4T_ijdAKtdHCD-hGXagHaJQ?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Somnath Hemram, a professional web developer in a modern office environment" class="rounded-2xl shadow-xl w-full max-w-md">
+                        <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg hidden md:block">
+                            <div class="text-blue-600 text-xl mb-2">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <p class="font-medium text-gray-700">2+ Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-underline inline-block">About Me</h2>
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+                    <img src="https://tse1.explicit.bing.net/th/id/OIP.UzB4T_ijdAKtdHCD-hGXagHaJQ?rs=1&pid=ImgDetMain&o=7&rm=3" alt="Professional headshot of Somnath Hemram, a web developer with short brown hair and glasses, smiling confidently" class="rounded-full w-64 h-64 object-cover shadow-lg border-4 border-blue-100">
+                </div>
+                <div class="md:w-2/3 md:pl-12">
+                    <p class="text-lg text-gray-700 mb-4">I'm a passionate web developer with expertise in creating responsive, user-friendly websites and web applications. With a background in both design and development, I bridge the gap between aesthetics and functionality.</p>
+                    <p class="text-lg text-gray-700 mb-6">My approach combines technical excellence with creative problem-solving to deliver digital products that are not only beautiful but also performant and accessible.</p>
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <div class="bg-blue-50 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-map-marker-alt text-blue-600 mr-2"></i>
+                            <span>Navsari, Gujarat, INDIA</span>
+                        </div>
+                        <div class="bg-blue-50 px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-graduation-cap text-blue-600 mr-2"></i>
+                            <span>Meta Front-End Developer</span>
+                        </div>
+                    </div>
+                    <a href="#" class="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium">
+                        Download Resume
+                        <i class="fas fa-download ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-16 px-4 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-underline inline-block">My Work</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://cdn.dribbble.com/userupload/23582110/file/original-cbf6c21e44d2a29865b90d0699a59112.gif" alt="Modern e-commerce dashboard with analytics charts and product statistics" class="w-full h-full object-cover transition duration-300 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">E-Commerce Dashboard</h3>
+                        <p class="text-gray-600 mb-4">A comprehensive admin dashboard for e-commerce businesses with real-time analytics and inventory management.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details</a>
+                            <div class="flex space-x-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">React</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Node.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://cdn.dribbble.com/userupload/20769107/file/original-b0bb1e565c452fca34a78fdcde54f813.gif" alt="Mobile fitness application interface showing workout statistics and exercise demos" class="w-full h-full object-cover transition duration-300 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Fitness Mobile App</h3>
+                        <p class="text-gray-600 mb-4">A workout tracking application with personalized training plans and exercise video demonstrations.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details</a>
+                            <div class="flex space-x-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">React Native</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Firebase</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://cdn.dribbble.com/userupload/23582110/file/original-cbf6c21e44d2a29865b90d0699a59112.gif" alt="Modern e-commerce dashboard with analytics charts and product statistics" class="w-full h-full object-cover transition duration-300 hover:scale-10" alt="Restaurant website featuring a modern menu layout with high-quality food photography" class="w-full h-full object-cover transition duration-300 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Restaurant Website</h3>
+                        <p class="text-gray-600 mb-4">An elegant website for a fine dining restaurant with online reservations and menu display.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details</a>
+                            <div class="flex space-x-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">JavaScript</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">GSAP</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://cdn.dribbble.com/userupload/20769107/file/original-b0bb1e565c452fca34a78fdcde54f813.gif" alt="Sleek corporate finance dashboard showing investment portfolios and market trends" class="w-full h-full object-cover transition duration-300 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Finance Dashboard</h3>
+                        <p class="text-gray-600 mb-4">A secure financial management system for personal budgeting and investment tracking.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details</a>
+                            <div class="flex space-x-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Vue.js</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">D3.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://cdn.dribbble.com/userupload/23582110/file/original-cbf6c21e44d2a29865b90d0699a59112.gif" alt="Modern e-commerce dashboard with analytics charts and product statistics" class="w-full h-full object-cover transition duration-300 hover:scale-10" alt="Travel booking platform with destination cards and interactive map interface" class="w-full h-full object-cover transition duration-300 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Travel Booking Platform</h3>
+                        <p class="text-gray-600 mb-4">An online travel agency website with interactive maps and personalized recommendations.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details</a>
+                            <div class="flex space-x-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">Next.js</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">MongoDB</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card bg-white rounded-xl overflow-hidden shadow-md">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="https://cdn.dribbble.com/userupload/20769107/file/original-b0bb1e565c452fca34a78fdcde54f813.gif" alt="Healthcare mobile application showing appointment scheduling and symptom checker features" class="w-full h-full object-cover transition duration-300 hover:scale-105">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-gray-800">Healthcare App</h3>
+                        <p class="text-gray-600 mb-4">A patient portal for scheduling appointments, accessing medical records, and telehealth services.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="#" class="text-blue-600 hover:text-blue-800 font-medium">View Details</a>
+                            <div class="flex space-x-2">
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">TypeScript</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">GraphQL</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-3 rounded-lg font-medium transition duration-300">
+                    View All Projects
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-underline inline-block">My Skills</h2>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-12">
+                <div class="skill-card bg-gray-50 rounded-lg p-6 flex flex-col items-center hover:shadow-md transition duration-300">
+                    <div class="text-5xl text-blue-600 mb-4">
+                        <i class="fab fa-html5"></i>
+                    </div>
+                    <p class="font-medium text-gray-800">HTML5</p>
+                </div>
+                
+                <div class="skill-card bg-gray-50 rounded-lg p-6 flex flex-col items-center hover:shadow-md transition duration-300">
+                    <div class="text-5xl text-blue-600 mb-4">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+                    <p class="font-medium text-gray-800">CSS3</p>
+                </div>
+                
+                <div class="skill-card bg-gray-50 rounded-lg p-6 flex flex-col items-center hover:shadow-md transition duration-300">
+                    <div class="text-5xl text-blue-600 mb-4">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <p class="font-medium text-gray-800">JavaScript</p>
+                </div>
+                
+                <div class="skill-card bg-gray-50 rounded-lg p-6 flex flex-col items-center hover:shadow-md transition duration-300">
+                    <div class="text-5xl text-blue-600 mb-4">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <p class="font-medium text-gray-800">React</p>
+                </div>
+                
+                <div class="skill-card bg-gray-50 rounded-lg p-6 flex flex-col items-center hover:shadow-md transition duration-300">
+                    <div class="text-5xl text-blue-600 mb-4">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <p class="font-medium text-gray-800">Node.js</p>
+                </div>
+                                                       
+                
+                <div class="skill-card bg-gray-50 rounded-lg p-6 flex flex-col items-center hover:shadow-md transition duration-300">
+                    <div class="text-5xl text-blue-600 mb-4">
+                        <i class="fab fa-vuejs"></i>
+                    </div>
+                    <p class="font-medium text-gray-800">Vue.js</p>
+                </div>
+                
+                <div class="skill-card bg-gray-50 rounded-lg p-6 flex flex-col items-center hover:shadow-md transition duration-300">
+                    <div class="text-5xl text-blue-600 mb-4">
+                        <i class="fab fa-npm"></i>
+                    </div>
+                    <p class="font-medium text-gray-800">npm</p>
+                </div>
+                
+                <div class="skill-card bg-gray-50 rounded-lg p-6 flex flex-col items-center hover:shadow-md transition duration-300">
+                    <div class="text-5xl text-blue-600 mb-4">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <p class="font-medium text-gray-800">Python</p>
+                </div>
+
+            </div>
+            
+            <div class="bg-blue-50 rounded-xl p-6 md:p-8">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-6 md:mb-0">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Experience & Learning</h3>
+                        <p class="text-gray-700">I continuously expand my skill set through coursework, personal projects, and professional experience. Currently focused on mastering modern JavaScript frameworks and cloud technologies.</p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-3">Current focuses:</h4>
+                        <ul class="space-y-2">
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-blue-600 mr-2"></i>
+                                <span>Advanced React Patterns</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-blue-600 mr-2"></i>
+                                <span>TypeScript</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-blue-600 mr-2"></i>
+                                <span>Testing Front-End Applications</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check-circle text-blue-600 mr-2"></i>
+                                <span>Web Performance Optimization</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 px-4 bg-gray-50">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center mb-12 gradient-underline inline-block">Get In Touch</h2>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 bg-blue-600 p-8 text-white">
+                        <h3 class="text-xl font-bold mb-4">Contact Information</h3>
+                        <p class="mb-6">Feel free to reach out for project inquiries, collaborations, or just to say hello!</p>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-lg mr-4"></i>
+                                <span>somnathking5032@gmail.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone-alt text-lg mr-4"></i>
+                                <span>+91 (757) 485-7540</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-map-marker-alt text-lg mr-4"></i>
+                                <span>Navsari, Gujarat, INDIA</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold mb-4">Follow Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-blue-700 hover:bg-blue-800 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="bg-blue-700 hover:bg-blue-800 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#" class="bg-blue-700 hover:bg-blue-800 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="bg-blue-700 hover:bg-blue-800 text-white w-10 h-10 rounded-full flex items-center justify-center transition duration-300">
+                                    <i class="fab fa-dribbble"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2 p-8">
+                        <form id="contact-form">
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 mb-2">Name</label>
+                                <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition duration-300" required>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 mb-2">Email</label>
+                                <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition duration-300" required>
+                            </div>
+                            
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 mb-2">Message</label>
+                                <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition duration-300" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-4 rounded-lg transition duration-300 shadow-md">
+                                Send Message
+                                <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                        
+                        <div id="form-success" class="hidden mt-4 p-4 bg-green-100 text-green-800 rounded-lg">
+                            Your message has been sent successfully!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-xl font-bold mb-4">Somnath Hemram</h3>
+                    <p class="text-gray-400 max-w-md">Creating digital experiences that are beautiful, functional, and user-centered.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="text-gray-400 hover:text-white transition duration-300">Home</a></li>
+                            <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">About</a></li>
+                            <li><a href="#portfolio" class="text-gray-400 hover:text-white transition duration-300">Portfolio</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition duration-300">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                        <ul class="space-y-2">
+                            <li>
+                                <a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                                    <i class="fab fa-github mr-2"></i> GitHub
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                                    <i class="fab fa-linkedin-in mr-2"></i> LinkedIn
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                                    <i class="fab fa-twitter mr-2"></i> Twitter
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-gray-400 hover:text-white transition duration-300 flex items-center">
+                                    <i class="fas fa-envelope mr-2"></i> Email
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 Somnath Hemram. All rights reserved.</p>
+                <div class="text-gray-400 text-sm">
+                    <a href="#" class="hover:text-white transition duration-300">Privacy Policy</a>
+                    <span class="mx-2">|</span>
+                    <a href="#" class="hover:text-white transition duration-300">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 invisible transition duration-300 z-20">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile Menu Toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.getElementById('back-to-top');
+            if (window.scrollY > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+
+        // Back to top functionality
+        document.getElementById('back-to-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            setTimeout(function() {
+                document.getElementById('contact-form').reset();
+                document.getElementById('form-success').classList.remove('hidden');
+                
+                setTimeout(function() {
+                    document.getElementById('form-success').classList.add('hidden');
+                }, 5000);
+            }, 1000);
+        });
+
+        // Animate elements when they come into view
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.slide-up, .fade-in');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Set initial state for animated elements
+        document.querySelectorAll('.slide-up').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(50px)';
+            element.style.transition = 'all 0.6s ease-out';
+        });
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transition = 'opacity 1s ease-in';
+        });
+
+        // Run animation check on load and scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
